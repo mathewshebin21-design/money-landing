@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Money Online Without Becoming Someone Else</title>
+    
+    <!-- Google Fonts: Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Google AdSense Global Script (Replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --bg-orange: #ff741f;
+            --bg-yellow: #f4c430;
+            --bg-dark: #111111;
+            --bg-green: #8be15a;
+            --bg-purple: #44268e;
+            --ink: #161616;
+            --paper: #fcf9f2;
+            --border-color: #161616;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'Manrope', Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section Layout */
+        .hero {
+            background-color: var(--bg-orange);
+            border-bottom: 3px solid var(--border-color);
+            padding: 30px 10px 60px 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid-container {
+                display: grid;
+                grid-template-columns: 1.15fr 0.85fr;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+
+        .hero-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding: 0 10px;
+        }
+
+        .hero-top-bar .top-center {
+            font-weight: 600;
+            text-transform: none;
+            font-size: 11px;
+            display: none;
+        }
+
+        @media (min-width: 480px) {
+            .hero-top-bar .top-center {
+                display: inline;
+            }
+        }
+
+        .hero-top-bar a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 1px;
+        }
+
+        .badge-wrapper {
+            padding-left: 10px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid var(--border-color);
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            background: transparent;
+            color: var(--ink);
+            border-radius: 50px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--bg-green);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            padding-left: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 7.5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.02;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--border-color);
+            color: var(--paper);
+            padding: 14px 24px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--border-color);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-green);
+            color: var(--ink);
+            padding: 14px 24px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--border-color);
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Sweeping Purple Background Arcs */
+        .bg-arcs {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 450px;
+            height: 450px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bg-arcs svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: var(--bg-purple);
+            stroke-width: 3;
+            opacity: 0.9;
+        }
+
+        .book-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            height: 440px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .green-blob {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            width: 65px;
+            height: 65px;
+            background-color: var(--bg-green);
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .book-floating-group {
+            position: relative;
+            width: 260px;
+            height: 370px;
+            transform: rotate(4deg);
+            animation: floatBook 4s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .book-shadow-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--border-color);
+            top: 10px;
+            left: 12px;
+            z-index: 1;
+        }
+
+        .book-mockup {
+            background-color: var(--bg-orange);
+            border: 3px solid var(--border-color);
+            padding: 35px 28px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .book-mockup:hover {
+            transform: scale(1.02);
+        }
+
+        .book-stripes {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            width: 100px;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            opacity: 0.95;
+        }
+
+        .book-stripe-line {
+            width: 100%;
+            height: 4px;
+            background-color: var(--paper);
+            transform: rotate(-38deg);
+        }
+
+        .book-title {
+            font-size: 2.1rem;
+            font-weight: 900;
+            line-height: 0.93;
+            letter-spacing: -1.5px;
+            color: var(--ink);
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .book-author {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--ink);
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .floating-badge {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background-color: var(--bg-green);
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            z-index: 5;
+            box-shadow: 2px 2px 0px var(--border-color);
+        }
+
+        .badge-dollar-1 { top: 135px; right: -20px; animation: floatBadge1 3.2s ease-in-out infinite; }
+        .badge-dollar-2 { bottom: 20px; left: -24px; animation: floatBadge2 3.6s ease-in-out infinite 0.4s; }
+        .badge-arrow { bottom: -20px; left: 110px; animation: floatBadge3 4s ease-in-out infinite 0.8s; }
+
+        @keyframes floatBook {
+            0%, 100% { transform: translateY(0px) rotate(4deg); }
+            50% { transform: translateY(-6px) rotate(3deg); }
+        }
+        @keyframes floatBadge1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(-4deg); }
+        }
+        @keyframes floatBadge2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(4deg); }
+        }
+        @keyframes floatBadge3 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(-3deg); }
+        }
+
+        /* Proof / Stats Bar */
+        .proof {
+            background-color: var(--bg-purple);
+            color: var(--paper);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: 3px solid var(--border-color);
+        }
+
+        .stat-item {
+            padding: 25px 15px;
+            border-right: 2px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+
+        .stat-item:last-child { border-right: none; }
+        .stat-number { font-size: 1.8rem; font-weight: 900; margin-bottom: 4px; }
+        .stat-label { font-size: 0.8rem; opacity: 0.9; font-weight: 500; }
+
+        /* AdSense Container Style */
+        .ad-section {
+            background-color: var(--paper);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--border-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 0;
+            border-bottom: 3px solid var(--border-color);
+        }
+
+        .section-header-small {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .intro { text-align: center; background-color: var(--paper); }
+        .intro h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; max-width: 750px; margin-left: auto; margin-right: auto; }
+        .intro p { font-size: 1.05rem; color: #333; max-width: 700px; margin: 0 auto; }
+
+        .money-map { background-color: var(--bg-dark); color: var(--paper); }
+        .money-map .section-header-small { color: var(--bg-green); }
+        .money-map h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 45px; letter-spacing: -1px; max-width: 650px; }
+
+        .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        .step-card { border-top: 2px solid rgba(255,255,255,0.3); padding-top: 15px; }
+        .step-number { font-size: 11px; font-weight: 800; color: var(--bg-green); margin-bottom: 10px; letter-spacing: 1px; }
+        .step-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+        .step-card p { font-size: 0.9rem; color: #aaa; }
+
+        .inside-book { background-color: var(--paper); }
+        .inside-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .chapters-list { border-top: 2px solid var(--border-color); }
+        .chapter-row { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid #ddd; font-size: 1rem; font-weight: 700; }
+        .chapter-num { font-size: 11px; font-weight: 800; color: #666; margin-right: 20px; letter-spacing: 1px; }
+
+        .feature-box { background-color: #f4ecf7; border: 2px solid var(--border-color); padding: 25px; margin-bottom: 20px; }
+        .feature-box h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 10px; }
+        .feature-box p { font-size: 0.95rem; color: #333; }
+
+        .who-section { background-color: var(--bg-green); color: var(--ink); }
+        .who-section h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: 40px; letter-spacing: -1.5px; }
+        .audience-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        .audience-card { background-color: var(--paper); border: 3px solid var(--border-color); padding: 30px; }
+        .audience-card h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 12px; }
+        .audience-card p { font-size: 1rem; color: #333; }
+
+        .final-cta { background-color: var(--paper); text-align: center; padding: 90px 20px; }
+        .final-cta h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 15px; }
+        .final-cta p { font-size: 1.05rem; color: #444; max-width: 550px; margin: 0 auto 25px auto; }
+        .sub-note { font-size: 0.85rem; color: #666; margin-top: 15px; }
+
+        .bottom-footer {
+            background-color: var(--bg-purple);
+            color: var(--paper);
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-top: 3px solid var(--border-color);
+        }
+
+        @media (min-width: 768px) {
+            .container { padding: 0 40px; }
+            .hero { padding: 30px 20px 80px 20px; }
+            .steps-grid { grid-template-columns: repeat(4, 1fr); }
+            .inside-grid { grid-template-columns: 1.1fr 0.9fr; gap: 50px; }
+            .audience-grid { grid-template-columns: 1fr 1fr; }
+            .bottom-footer { flex-direction: row; justify-content: space-between; text-align: left; }
+            .stat-number { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero" id="top">
+        <div class="bg-arcs">
+            <svg viewBox="0 0 400 400" preserveAspectRatio="xMaxYMin slice">
+                <path d="M 400,0 A 400,400 0 0,0 0,400" />
+                <path d="M 400,60 A 340,340 0 0,0 60,400" />
+                <path d="M 400,120 A 280,280 0 0,0 120,400" />
+            </svg>
+        </div>
+
+        <div class="container">
+            <div class="hero-top-bar">
+                <span>SHEBIN MATHEW / BOOK 01</span>
+                <span class="top-center">Practical ideas. No fantasy promises.</span>
+                <a href="#buy" style="margin-right: -10px;">Get the book ↓</a>
+            </div>
+            
+            <div class="badge-wrapper">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    A PLAIN-ENGLISH NO-CODE GUIDE
+                </div>
+            </div>
+            
+            <div class="hero-grid-container">
+                <div class="hero-content">
+                    <h1>Make money online without becoming someone else.</h1>
+                    <p>A practical book for turning one useful skill or idea into a clear no-code offer - without expensive tools, loud hype, or confusing jargon.</p>
+                    <div class="btn-group">
+                        <!-- Direct PDF Download Button -->
+                        <form action="https://jo123z.app.n8n.cloud/webhook/200e046e-5bd8-4c15-aecc-396b4c81469c" method="POST" style="display: flex; gap: 10px;">
+                            <input type="email" name="email" id="emailInput" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
+                            <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800;">Get Free Ebook</button>
+                          </form>
+                          
+                         
+                        <a href="#inside" class="btn-secondary">See what is inside</a>
+                    </div>
+                </div>
+
+                <div class="book-wrapper">
+                    <div class="green-blob"></div>
+
+                    <div class="book-floating-group">
+                        <div class="book-shadow-card"></div>
+                        <a href="#inside" class="book-mockup">
+                            <div class="book-stripes">
+                                <div class="book-stripe-line"></div>
+                                <div class="book-stripe-line"></div>
+                                <div class="book-stripe-line"></div>
+                                <div class="book-stripe-line"></div>
+                            </div>
+                            <div class="book-title">
+                                MAKE<br>
+                                MONEY<br>
+                                ONLINE<br>
+                                WITH NO<br>
+                                CODE
+                            </div>
+                            <div class="book-author">
+                                SHEBIN MATHEW
+                            </div>
+                        </a>
+                        
+                        <div class="floating-badge badge-dollar-1">$</div>
+                        <div class="floating-badge badge-dollar-2">$</div>
+                        <div class="floating-badge badge-arrow">↑</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Proof / Stats Bar -->
+    <div class="proof">
+        <div class="stat-item">
+            <div class="stat-number">120</div>
+            <div class="stat-label">workbook pages</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-label">practical chapters</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">coding experience</div>
+        </div>
+    </div>
+
+    <!-- AdSense Banner Space (Ad Unit 1) -->
+    <div class="ad-section">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Intro Section -->
+    <section class="intro">
+        <div class="container">
+            <div class="section-header-small" style="color: #666;">THE HONEST VERSION</div>
+            <h2>You do not need a “secret method.” You need a useful first move.</h2>
+            <p>Most online-income advice makes people feel behind. This book takes the opposite approach: choose a real problem, offer a small result, talk to real people, and improve from what you learn. No-code tools make the work lighter; they do not replace the work that matters.</p>
+        </div>
+    </section>
+
+    <!-- The Money Map Section -->
+    <section class="money-map">
+        <div class="container">
+            <div class="section-header-small">THE MONEY MAP</div>
+            <h2>Four moves from “I have an idea” to “I have proof.”</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01 / NOTICE</div>
+                    <h3>Find a real problem</h3>
+                    <p>Learn how to spot needs people already spend time, money, or energy trying to solve.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">02 / SHAPE</div>
+                    <h3>Make a clear offer</h3>
+                    <p>Turn a skill or shortcut into an outcome people can understand and choose.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03 / BUILD</div>
+                    <h3>Use no-code wisely</h3>
+                    <p>Choose a lean toolkit to publish, collect, deliver, and follow up without a subscription pile-up.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04 / LEARN</div>
+                    <h3>Sell, deliver, improve</h3>
+                    <p>Run small tests, respect your customers, and make the next version better than the first.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inside the Book Section -->
+    <section class="inside-book" id="inside">
+        <div class="container">
+            <div class="section-header-small" style="color: #666;">INSIDE THE BOOK</div>
+            <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 40px; letter-spacing: -1px;">Useful pages you can actually use.</h2>
+            
+            <div class="inside-grid">
+                <div class="chapters-list">
+                    <div class="chapter-row"><span class="chapter-num">01</span> Start Small, Start Real</div>
+                    <div class="chapter-row"><span class="chapter-num">02</span> Find a Problem Worth Solving</div>
+                    <div class="chapter-row"><span class="chapter-num">03</span> Build Your No-Code Toolkit</div>
+                    <div class="chapter-row"><span class="chapter-num">04</span> Shape an Offer People Understand</div>
+                    <div class="chapter-row"><span class="chapter-num">05</span> Sell a Useful No-Code Service</div>
+                    <div class="chapter-row"><span class="chapter-num">06</span> Create Digital Products with Care</div>
+                    <div class="chapter-row"><span class="chapter-num">07</span> Make Content That Builds Trust</div>
+                    <div class="chapter-row"><span class="chapter-num">08</span> Price, Deliver, and Improve</div>
+                </div>
+                <div>
+                    <div class="feature-box">
+                        <h3>Not just advice.</h3>
+                        <p>Every chapter ends with a focused action page. You also get outreach scripts, offer worksheets, interview prompts, a delivery checklist, a weekly scorecard, and a gentle 30-day launch plan.</p>
+                    </div>
+                    <div class="feature-box" style="background-color: #f0f4f8;">
+                        <h3>Built for real life.</h3>
+                        <p>Start around your job, classes, or family life. Work at a steady pace. Use only what is useful. Skip anything that does not fit your values.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It Is For Section -->
+    <section class="who-section">
+        <div class="container">
+            <div class="section-header-small" style="color: #111;">WHO IT IS FOR</div>
+            <h2>A starting point for people who want to be useful before they try to be big.</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>This book is for you if...</h3>
+                    <p>You have an interest, a practical skill, or an idea - but need a calm way to test whether it can help someone and earn money online.</p>
+                </div>
+                <div class="audience-card">
+                    <h3>It is not for you if...</h3>
+                    <p>You are looking for overnight results, guaranteed income, or a shortcut that avoids talking to customers and doing useful work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="buy">
+        <div class="container">
+            <div class="section-header-small" style="color: #666;">YOUR NEXT SMALL MOVE</div>
+            <h2>Start with one useful problem.</h2>
+            <p>Get <em>Make Money Online With No Code</em> and download your PDF instantly to start building.</p>
+            <form action="https://jo123z.app.n8n.cloud/webhook/200e046e-5bd8-4c15-aecc-396b4c81469c" method="POST" style="display: flex; gap: 10px;">
+                <input type="email" name="email" id="emailInput" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
+                <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800;">Get Free Ebook</button>
+              </form>
+              
+              <script>
+                document.getElementById('leadForm').addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  const email = document.getElementById('emailInput').value;
+              
+                  // Replace with your actual n8n Form URL
+                  const n8nFormUrl = 'https://jo123z.app.n8n.cloud/form-test/3674f45c-346f-41fb-a715-7de8771fe175';
+              
+                  // This redirects them to your n8n form with their email already plugged into the URL
+                  window.location.href = `${n8nFormUrl}?email=${encodeURIComponent(email)}`;
+                });
+              </script>
+
+            <div class="sub-note">Make sure your PDF file is saved in the same folder as this HTML page and named correctly.</div>
+        </div>
+    </section>
+
+    <!-- Bottom Footer Bar -->
+   <!-- Bottom Footer Bar -->
+   <footer class="bottom-footer">
+    <span>Make Money Online With No Code <a href="privacy-policy.html" style="color: var(--paper); margin-left: 15px; text-decoration: underline;">Privacy Policy</a></span>
+    <span>© 2026 Shebin Mathew</span>
+</footer>
+<script>
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      
+      // Replace this with your actual n8n Form URL from your Form Trigger node
+      const n8nFormUrl = 'https://jo123z.app.n8n.cloud/form-test/3674f45c-346f-41fb-a715-7de8771fe175';
+      
+      // This sends them to your n8n form with the email already attached
+      window.location.href = `${n8nFormUrl}?email=${encodeURIComponent(email)}`;
+    });
+  </script>
+</body>
+</html>
