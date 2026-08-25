@@ -475,12 +475,11 @@
                     <h1>Make money online without becoming someone else.</h1>
                     <p>A practical book for turning one useful skill or idea into a clear no-code offer - without expensive tools, loud hype, or confusing jargon.</p>
                     <div class="btn-group">
-                        <!-- Direct PDF Download Button -->
-                        <form action="https://jo123z.app.n8n.cloud/webhook/200e046e-5bd8-4c15-aecc-396b4c81469c" method="POST" style="display: flex; gap: 10px;">
+                        <!-- Direct Webhook Form -->
+                        <form id="leadForm" style="display: flex; gap: 10px; width: 100%;">
                             <input type="email" name="email" id="emailInput" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
-                            <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800;">Get Free Ebook</button>
-                          </form>
-                          
+                            <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer;">Get Free Ebook</button>
+                        </form>
                          
                         <a href="#inside" class="btn-secondary">See what is inside</a>
                     </div>
@@ -642,45 +641,58 @@
             <div class="section-header-small" style="color: #666;">YOUR NEXT SMALL MOVE</div>
             <h2>Start with one useful problem.</h2>
             <p>Get <em>Make Money Online With No Code</em> and download your PDF instantly to start building.</p>
-            <form action="https://jo123z.app.n8n.cloud/webhook/200e046e-5bd8-4c15-aecc-396b4c81469c" method="POST" style="display: flex; gap: 10px;">
-                <input type="email" name="email" id="emailInput" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
-                <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800;">Get Free Ebook</button>
-              </form>
-              
-              <script>
-                document.getElementById('leadForm').addEventListener('submit', function(e) {
-                  e.preventDefault();
-                  const email = document.getElementById('emailInput').value;
-              
-                  // Replace with your actual n8n Form URL
-                  const n8nFormUrl = 'https://jo123z.app.n8n.cloud/form-test/3674f45c-346f-41fb-a715-7de8771fe175';
-              
-                  // This redirects them to your n8n form with their email already plugged into the URL
-                  window.location.href = `${n8nFormUrl}?email=${encodeURIComponent(email)}`;
-                });
-              </script>
+            
+            <form id="leadFormBottom" style="display: flex; gap: 10px; max-width: 600px; margin: 0 auto;">
+                <input type="email" name="email" id="emailInputBottom" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
+                <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer;">Get Free Ebook</button>
+            </form>
 
             <div class="sub-note">Make sure your PDF file is saved in the same folder as this HTML page and named correctly.</div>
         </div>
     </section>
 
     <!-- Bottom Footer Bar -->
-   <!-- Bottom Footer Bar -->
-   <footer class="bottom-footer">
-    <span>Make Money Online With No Code <a href="privacy-policy.html" style="color: var(--paper); margin-left: 15px; text-decoration: underline;">Privacy Policy</a></span>
-    <span>© 2026 Shebin Mathew</span>
-</footer>
-<script>
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = document.getElementById('emailInput').value;
-      
-      // Replace this with your actual n8n Form URL from your Form Trigger node
-      const n8nFormUrl = 'https://jo123z.app.n8n.cloud/form-test/3674f45c-346f-41fb-a715-7de8771fe175';
-      
-      // This sends them to your n8n form with the email already attached
-      window.location.href = `${n8nFormUrl}?email=${encodeURIComponent(email)}`;
-    });
-  </script>
+    <footer class="bottom-footer">
+        <span>Make Money Online With No Code <a href="privacy-policy.html" style="color: var(--paper); margin-left: 15px; text-decoration: underline;">Privacy Policy</a></span>
+        <span>© 2026 Shebin Mathew</span>
+    </footer>
+
+    <!-- Webhook JavaScript Handler -->
+    <script>
+        const n8nWebhookUrl = 'https://jo123z.app.n8n.cloud/webhook/200e046e-5bd8-4c15-aecc-396b4c81469c';
+
+        async function handleFormSubmit(e, inputElement) {
+            e.preventDefault();
+            const email = inputElement.value;
+            
+            try {
+                const response = await fetch(n8nWebhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+
+                if (response.ok) {
+                    alert('Success! Check your inbox for the e-book.');
+                    inputElement.value = '';
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Network error. Check your connection.');
+            }
+        }
+
+        document.getElementById('leadForm').addEventListener('submit', (e) => {
+            handleFormSubmit(e, document.getElementById('emailInput'));
+        });
+
+        document.getElementById('leadFormBottom').addEventListener('submit', (e) => {
+            handleFormSubmit(e, document.getElementById('emailInputBottom'));
+        });
+    </script>
 </body>
 </html>
