@@ -475,10 +475,16 @@
                     <h1>Make money online without becoming someone else.</h1>
                     <p>A practical book for turning one useful skill or idea into a clear no-code offer - without expensive tools, loud hype, or confusing jargon.</p>
                     <div class="btn-group">
-                        <!-- Direct Webhook Form -->
-                        <form id="leadForm" style="display: flex; gap: 10px; width: 100%;">
-                            <input type="email" name="email" id="emailInput" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
-                            <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer;">Get Free Ebook</button>
+                        <form action="https://api.web3forms.com/submit" method="POST" id="leadForm" style="display: flex; gap: 10px; width: 100%;">
+    
+                            <!-- This hidden input is the magic key for Web3Forms -->
+                            <input type="hidden" name="access_key" value="033bed5b-f674-4bc7-a49a-33b19a547f90">
+                            
+                            <!-- Your existing email input -->
+                            <input type="email" name="email" id="emailInput" placeholder="Enter your email" required style="padding: 10px; flex: 1;">
+                            
+                            <!-- Your existing button -->
+                            <button type="submit" style="background: #161616; color: white; padding: 10px 20px; border: none; cursor: pointer;">Get Free Ebook</button>
                         </form>
                          
                         <a href="#inside" class="btn-secondary">See what is inside</a>
@@ -642,11 +648,14 @@
             <h2>Start with one useful problem.</h2>
             <p>Get <em>Make Money Online With No Code</em> and download your PDF instantly to start building.</p>
             <!-- Keep your exact wrapper classes and styling here -->
-            <form onsubmit="handleFormSubmit(event, document.getElementById('emailInput'))" style="display: flex; gap: 10px; max-width: 600px; margin: 0 auto; align-items: center;">
-                <input type="email" id="emailInput" name="email" placeholder="Enter your email..." style="flex: 1; padding: 15px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit;" required>
-                <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; border: none; border-radius: 5px; cursor: pointer; font-family: inherit; font-weight: bold;">Get Guide</button>
-            </form>
-            
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="leadForm">
+                <!-- Your Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="033bed5b-f674-4bc7-a49a-33b19a547f90">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" id="submitBtn">Get Free Ebook</button>
+              </form>
 
             <div class="sub-note">Make sure your PDF file is saved in the same folder as this HTML page and named correctly.</div>
         </div>
@@ -660,19 +669,20 @@
 
     <!-- Webhook JavaScript Handler -->
     <script>
-        const n8nWebhookUrl = 'https://hook.eu1.make.com/s63b58kv4lovligkgvlm7hac9p8y197s';
+        const response = await fetch('https://hook.eu1.make.com/y76dcugn6zan6hhqewvc2pulr9fpcwvx'), 
 
-async function handleFormSubmit(e, inputElement) {
-    e.preventDefault(); // Stops the page from reloading or redirecting
+            async function handleFormSubmit(e, inputElement) {
+    e.preventDefault();
     const email = inputElement.value;
-    
+
     try {
-        const response = await fetch(n8nWebhookUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
-        });
-        
+        const response = await fetch('https://hook.eu1.make.com/y76dcugn6zan6hhqewvc2pulr9fpcwvx', {
+    method: 'POST',
+    mode: 'no-cors', // Tells the browser not to block the cross-origin request
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+});
+
         if (response.ok) {
             alert('Success! Check your Make dashboard.');
         } else {
@@ -681,7 +691,7 @@ async function handleFormSubmit(e, inputElement) {
     } catch (error) {
         alert('Network error connecting to webhook.');
     }
-     }
+}
 
         document.getElementById('leadForm').addEventListener('submit', (e) => {
             handleFormSubmit(e, document.getElementById('emailInput'));
