@@ -641,11 +641,12 @@
             <div class="section-header-small" style="color: #666;">YOUR NEXT SMALL MOVE</div>
             <h2>Start with one useful problem.</h2>
             <p>Get <em>Make Money Online With No Code</em> and download your PDF instantly to start building.</p>
+            <!-- Keep your exact wrapper classes and styling here -->
+ <form onsubmit="handleFormSubmit(event, document.getElementById('emailInput'))" class="your-original-form-class">
+    <input type="email" id="emailInput" placeholder="Enter your email" class="your-original-input-class" required>
+    <button type="submit" class="your-original-button-class">Get Guide</button>
+ </form>
             
-            <form id="leadFormBottom" style="display: flex; gap: 10px; max-width: 600px; margin: 0 auto;">
-                <input type="email" name="email" id="emailInputBottom" placeholder="Enter your email..." required style="flex: 1; padding: 15px 20px; font-family: inherit; font-size: 1rem; font-weight: 600;" />
-                <button type="submit" style="background: #161616; color: #fcf9f2; padding: 15px 25px; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer;">Get Free Ebook</button>
-            </form>
 
             <div class="sub-note">Make sure your PDF file is saved in the same folder as this HTML page and named correctly.</div>
         </div>
@@ -661,30 +662,26 @@
     <script>
         const n8nWebhookUrl = 'https://hook.eu1.make.com/s63b58kv4lovligkgvlm7hac9p8y197s';
 
-        async function handleFormSubmit(e, inputElement) {
-            e.preventDefault();
-            const email = inputElement.value;
-            
-            try {
-                const response = await fetch(n8nWebhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email: email })
-                });
-
-                if (response.ok) {
-                    alert('Success! Check your inbox for the e-book.');
-                    inputElement.value = '';
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Network error. Check your connection.');
-            }
+async function handleFormSubmit(e, inputElement) {
+    e.preventDefault(); // Stops the page from reloading or redirecting
+    const email = inputElement.value;
+    
+    try {
+        const response = await fetch(n8nWebhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email })
+        });
+        
+        if (response.ok) {
+            alert('Success! Check your Make dashboard.');
+        } else {
+            alert('Webhook received an error response.');
         }
+    } catch (error) {
+        alert('Network error connecting to webhook.');
+    }
+     }
 
         document.getElementById('leadForm').addEventListener('submit', (e) => {
             handleFormSubmit(e, document.getElementById('emailInput'));
