@@ -475,15 +475,17 @@
                     <h1>Make money online without becoming someone else.</h1>
                     <p>A practical book for turning one useful skill or idea into a clear no-code offer - without expensive tools, loud hype, or confusing jargon.</p>
                     <div class="btn-group">
-                        <form action="https://api.web3forms.com/submit" method="POST" id="leadForm" style="display: flex; gap: 10px; width: 100%;">
-    
-                            <!-- This hidden input is the magic key for Web3Forms -->
+                        <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; gap: 10px; width: 100%;">
+                            <!-- Your Web3Forms Access Key -->
                             <input type="hidden" name="access_key" value="033bed5b-f674-4bc7-a49a-33b19a547f90">
                             
-                            <!-- Your existing email input -->
-                            <input type="email" name="email" id="emailInput" placeholder="Enter your email" required style="padding: 10px; flex: 1;">
+                            <!-- Optional: Redirect back to your site or a success message after submitting -->
+                            <input type="hidden" name="redirect" value="https://moneywitnocode-1.vercel.app">
+                        
+                            <!-- Email Input -->
+                            <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1;">
                             
-                            <!-- Your existing button -->
+                            <!-- Submit Button -->
                             <button type="submit" style="background: #161616; color: white; padding: 10px 20px; border: none; cursor: pointer;">Get Free Ebook</button>
                         </form>
                          
@@ -650,13 +652,19 @@
             <!-- Keep your exact wrapper classes and styling here -->
             <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-            <form action="https://api.web3forms.com/submit" method="POST" id="leadForm">
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; gap: 10px; width: 100%;">
                 <!-- Your Web3Forms Access Key -->
                 <input type="hidden" name="access_key" value="033bed5b-f674-4bc7-a49a-33b19a547f90">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <button type="submit" id="submitBtn">Get Free Ebook</button>
-              </form>
-
+                
+                <!-- Optional: Redirect back to your site or a success message after submitting -->
+                <input type="hidden" name="redirect" value="https://moneywitnocode-1.vercel.app">
+            
+                <!-- Email Input -->
+                <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1;">
+                
+                <!-- Submit Button -->
+                <button type="submit" style="background: #161616; color: white; padding: 10px 20px; border: none; cursor: pointer;">Get Free Ebook</button>
+            </form>
             <div class="sub-note">Make sure your PDF file is saved in the same folder as this HTML page and named correctly.</div>
         </div>
     </section>
